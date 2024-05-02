@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Cloud</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='img/logo.png') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}"
+    />
+    <link rel="stylesheet" href="{{external_font}}" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/fontawesome.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/simple-line-icons.min.css') }}"
+    />
+    <link rel="stylesheet" href="{{animate}}" />
+    <link
+      rel="stylesheet"
+      href="{{mat_design}}"
+      integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc="
+      crossorigin="anonymous"
+    />
+    <link href="{{box_icon}}" rel="stylesheet" />
+    <link
+      href="{{ url_for('static', filename='css/style.css') }}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{ url_for('static', filename='css/login.css') }}"
+      rel="stylesheet"
+    />
+    <script src="{{ jquery }}"></script>
+    <script src="{{url_for('static', filename='js/login.js')}}"></script>
+  </head>
+
+  <body>
+    <div class="login-container">
+      <div class="login-card" id="login-card">
+        <h2>Login</h2>
+        <form action="#" method="post">
+          {{ login_form.hidden_tag() }} {{ login_form.email(placeholder="Email")
+          }}
+          <div class="password-container">
+            {{login_form.password(placeholder="Password")}}
+            <span class="toggle-password" onclick="togglePasswordVisibility()"
+              ><span class="mdi mdi-eye-off-outline"></span
+            ></span>
+          </div>
+          {% with messages = get_flashed_messages() %} {% if messages %} {% for
+          message in messages %}
+          <span style="color: red">{{ message }}</span>
+          {% endfor %} {% endif %} {% endwith %} {{
+          login_form.submit(class="login-btn") }}
+        </form>
+
+        <a onclick="showCard('signup')">Sign Up</a>
+      </div>
+      <div class="signup-card" id="signup-card" hidden="true">
+        <h2>Sign Up</h2>
+        <form action="#" method="post">
+          {{ signup_form.hidden_tag() }} {{
+          signup_form.email(placeholder="Email") }} {{
+          signup_form.username(placeholder="Username") }} {{
+          signup_form.password(placeholder="Password") }} {{
+          signup_form.submit(class="signup-btn") }}
+        </form>
+        <a onclick="showCard('login')">Back to login</a>
+      </div>
+      <div class="forgot-card" id="reset-card" hidden="true">
+        <h2>Password Reset</h2>
+        <form action="#" method="post">
+          {{ reset_form.hidden_tag() }} {{ reset_form.email(placeholder="Email")
+          }} {{ reset_form.submit(class="reset-btn") }}
+        </form>
+        <a onclick="showCard('login')">Back to login</a>
+      </div>
+    </div>
+  </body>
+</html>

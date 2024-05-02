@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Cloud</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='img/logo.png') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}"
+    />
+    <link rel="stylesheet" href="{{ external_font }}" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/fontawesome.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/simple-line-icons.min.css') }}"
+    />
+    <link rel="stylesheet" href="{{ animated_css }}" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-light navbar-expand bg-light navigation-clean">
+      <div class="container">
+        <a class="navbar-brand" href="#"
+          ><img src="{{ url_for('static', filename='img/logo.png') }}"" height="
+          50" width="50"> Cloud</a
+        ><button
+          data-bs-toggle="collapse"
+          class="navbar-toggler"
+          data-bs-target="#navcol-1"
+        ></button>
+      </div>
+    </nav>
+    <header
+      class="text-center text-white masthead"
+      style="background: url( '{{ url_for('static', filename='img/bg-masthead.png' ) }}') no-repeat center center;"
+    >
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto position-relative">
+            <h1 class="mb-5">Welcome To Cloud</h1>
+            <p style="font-size: 19px">Access your files anytime, anywhere</p>
+          </div>
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative">
+            <form action="{{url_for('login')}}" method="post">
+              <button
+                class="btn btn-primary"
+                ,
+                style="border-radius: 5px; font-size: 20px; text-align: center"
+                type="submit"
+              >
+                Go to Cloud
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="text-center bg-light features-icons">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+              <div class="d-flex features-icons-icon">
+                <i
+                  class="icon-speedometer m-auto text-primary"
+                  data-bss-hover-animate="pulse"
+                ></i>
+              </div>
+              <h3>Very fast</h3>
+              <p class="lead mb-0">
+                Our servers are built to be the fast as they can, for you!
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+              <div class="d-flex features-icons-icon">
+                <i
+                  class="icon-cloud-download m-auto text-primary"
+                  data-bss-hover-animate="pulse"
+                ></i>
+              </div>
+              <h3>Access anywhere</h3>
+              <p class="lead mb-0">
+                Your files in on a cloud server, which means you can access them
+                from anywhere in the world at any time!
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+              <div class="d-flex features-icons-icon">
+                <i
+                  class="icon-check m-auto text-primary"
+                  data-bss-hover-animate="pulse"
+                ></i>
+              </div>
+              <h3>Easy to Use</h3>
+              <p class="lead mb-0">Just upload your files from any device.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="showcase">
+      <div class="container-fluid p-0">
+        <div class="row g-0">
+          <div
+            class="col-lg-6 text-white order-lg-2 showcase-img"
+            style="background: url( '{{ url_for('static',
+                    filename='img/bg-project.png' ) }}')"
+          >
+            <span></span>
+          </div>
+          <div class="col-lg-6 my-auto order-lthg-1 showcase-text">
+            <h2>Project background</h2>
+            <p class="lead mb-0">
+              This project is a cloud server, like Google Drive, Dropbox,
+              etc...<br />it's main purpose is to store files and access them
+              from anywhere in the world but with Deduplication on our servers
+            </p>
+          </div>
+        </div>
+        <div class="row g-0">
+          <div
+            class="col-lg-6 text-white showcase-img"
+            style="background: url( '{{ url_for('static',
+                    filename='img/bg-code.jpg' ) }}')"
+          >
+            <span></span>
+          </div>
+          <div class="col-lg-6 my-auto order-lg-1 showcase-text">
+            <h2>SCE PROJECT</h2>
+            <p class="lead mb-0">
+              <span style="color: rgb(55, 65, 81)"
+                >This website has been built by David and Bathen for final
+                project</span
+              ><br />
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="text-center bg-light testimonials"
+      style="background: rgb(202, 207, 213)"
+    >
+      <div class="container">
+        <h2 class="mb-5">Project Members</h2>
+        <div class="row d-xl-flex justify-content-center">
+          <div class="col-lg-4">
+            <div class="mx-auto testimonial-item mb-5 mb-lg-0">
+              <img
+                class="rounded-circle img-fluid mb-3"
+                src="{{ url_for('static', filename='img/testimonials-2.jpeg') }}"
+              />
+              <h5>David Alexander Halfon</h5>
+              <p class="font-weight-light mb-0">
+                Main programmer<br />Forth year student at SCE
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="mx-auto testimonial-item mb-5 mb-lg-0">
+              <img
+                class="rounded-circle img-fluid mb-3"
+                src="{{ url_for('static', filename='img/testimonials-3.jpeg') }}"
+              />
+              <h5>Bathen Avraham</h5>
+              <p class="font-weight-light mb-0">
+                Main programmer<br />Forth year student at SCE<br />
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="bg-light footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 text-center text-lg-start my-auto h-100">
+          
+            <p class="text-muted small mb-4 mb-lg-0">
+              © Cloud 2024. All Rights Reserved.
+            </p>
+          </div>
+          <div class="col-lg-6 text-center text-lg-end my-auto h-100">
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item">
+                <a href="#"><i class="fa fa-facebook fa-2x fa-fw"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#"><i class="fa fa-twitter fa-2x fa-fw"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#"><i class="fa fa-instagram fa-2x fa-fw"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bs-init.js') }}"></script>
+  </body>
+</html>

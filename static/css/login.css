@@ -1,0 +1,103 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    background: linear-gradient(135deg, #2d74da, #8da5c6) !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100vh !important;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(5px) !important;
+    /* Adjust the blur value */
+    border-radius: 8px !important;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2) !important;
+    padding: 40px !important;
+    width: 350px !important;
+    text-align: center !important;
+    transform: scale(1) translateZ(0) !important;
+    transition: transform 0.3s ease-in-out !important;
+    transform-style: preserve-3d !important;
+}
+
+.login-container:hover {
+    /*transform: scale(1.04) translateZ(0)!important;*/
+}
+
+.login-container h2 {
+    margin-bottom: 30px !important;
+    color: #333 !important;
+}
+
+.login-container input {
+    width: 100% !important;
+    padding: 12px !important;
+    margin-bottom: 20px !important;
+    border: none !important;
+    border-radius: 6px !important;
+    box-sizing: border-box !important;
+    font-size: 16px !important;
+    background: rgba(255, 255, 255, 0.7);
+    color: #333 !important;
+    outline: none !important;
+}
+
+.login-container button {
+    color: #fff !important;
+    padding: 12px 24px !important;
+    border: none !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+    transition: background 0.3s ease-in-out !important;
+}
+
+.login-btn {
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    color: #fff !important;
+    padding: 12px 24px !important;
+    border: none !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+    transition: background 0.3s ease-in-out !important;
+}
+
+.login-btn:hover {
+    background-color: linear-gradient(135deg, #2d74da, #8da5c6) !important;
+}
+
+.login-container button:hover {
+    background: linear-gradient(135deg, #155799, #6f7d9d) !important;
+}
+
+.login-container a {
+    color: #2d74da !important;
+    text-decoration: none !important;
+    margin-top: 20px !important;
+    display: inline-block !important;
+    font-size: 14px !important;
+}
+
+.login-container a:hover {
+    text-decoration: underline !important;
+}
+
+.password-container {
+    position: relative;
+}
+
+#password {
+    padding-right: 40px;
+    /* Increased padding for the toggle button */
+}
+
+.toggle-password {
+    position: absolute;
+    top: 35%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Cloud</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='img/logo.png') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}"
+    />
+    <link rel="stylesheet" href="{{external_font}}" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/fontawesome.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/simple-line-icons.min.css') }}"
+    />
+    <link rel="stylesheet" href="{{ animate }}" />
+    <link
+      rel="stylesheet"
+      href="{{ mat_design }}"
+      integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc="
+      crossorigin="anonymous"
+    />
+    <link href="{{box_icon}}" rel="stylesheet" />
+    <link
+      href="{{ url_for('static', filename='css/style.css') }}"
+      rel="stylesheet"
+    />
+    <script src="{{ jquery }}"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="row mb-3">
+                <div class="col-lg-4 col-sm-6">
+                  <div class="search-box mb-2 me-2">
+                    <div class="position-relative">
+                      <input
+                        type="text"
+                        id="searchInput"
+                        class="form-control bg-light border-light rounded searchInput"
+                        placeholder="Search..."
+                      />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="26"
+                        height="26"
+                        viewBox="0 0 24 24"
+                        class="eva eva-search-outline search-icon"
+                      >
+                        <g data-name="Layer 2">
+                          <g data-name="search">
+                            <rect width="24" height="24" opacity="0"></rect>
+                            <path
+                              d="M20.71 19.29l-3.4-3.39A7.92 7.92 0 0 0 19 11a8 8 0 1 0-8 8 7.92 7.92 0 0 0 4.9-1.69l3.39 3.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 11a6 6 0 1 1 6 6 6 6 0 0 1-6-6z"
+                            ></path>
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-sm-6">
+                  <div
+                    class="mt-4 mt-sm-0 d-flex align-items-center justify-content-sm-end"
+                  >
+                    <div class="mb-2 me-2">
+                      <form
+                        method="POST"
+                        enctype="multipart/form-data"
+                        autocomplete="off"
+                      >
+                        <input
+                          type="file"
+                          name="fileInput"
+                          id="fileInput"
+                          style="display: none"
+                        />
+                        <button
+                          class="btn btn-primary"
+                          type="button"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                          onclick="chooseFile()"
+                        >
+                          <i class="mdi mdi-upload me-1"></i> Upload File
+                        </button>
+                        <p id="selectedFileName"></p>
+                        <button id="submit" type="submit" style="display: none">
+                          Upload File
+                        </button>
+                      </form>
+                      <input type="file" id="fileInput" style="display: none" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h5 class="font-size-16 me-3 mb-0">
+                Welcome back {{ login_info.username }}
+              </h5>
+              <div class="row mt-4">
+                <div class="col-xl-4 col-sm-6">
+                  <div class="card shadow-none border">
+                    <div class="card-body p-3">
+                      <div class="">
+                        <div class="d-flex align-items-center">
+                          <div class="avatar align-self-center me-3">
+                            <div
+                              class="avatar-title rounded image-icon font-size-24"
+                            >
+                              <i class="mdi mdi-image"></i>
+                            </div>
+                          </div>
+
+                          <div class="flex-1">
+                            <h5 class="font-size-15 mb-1">Image Files</h5>
+                          </div>
+                        </div>
+                        <div class="mt-3 pt-1">
+                          <div class="d-flex justify-content-between">
+                            <p class="text-muted font-size-13 mb-1">
+                              {{storage['image'][0]}}
+                            </p>
+                            <p class="text-muted font-size-13 mb-1">
+                              {{storage['total'][0]}} used
+                            </p>
+                          </div>
+                          <div
+                            class="progress animated custom-progress image-bar"
+                          >
+                            <div
+                              class="progress-bar bg-gradient bg-primary image-progress-bar fill-up-animation"
+                              role="progressbar"
+                              style="width: 0%"
+                              aria-valuenow="{{storage['image'][1]}}"
+                              aria-valuemin="0"
+                              aria-valuemax="{{storage['total'][1]}}"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end col -->
+
+                <div class="col-xl-4 col-sm-6">
+                  <div class="card shadow-none border">
+                    <div class="card-body p-3">
+                      <div class="">
+                        <div class="d-flex align-items-center">
+                          <div class="avatar align-self-center me-3">
+                            <div
+                              class="avatar-title rounded video-icon font-size-24"
+                            >
+                              <i class="mdi mdi-video"></i>
+                            </div>
+                          </div>
+
+                          <div class="flex-1">
+                            <h5 class="font-size-15 mb-1">Video Files</h5>
+                          </div>
+                        </div>
+                        <div class="mt-3 pt-1">
+                          <div class="d-flex justify-content-between">
+                            <p class="text-muted font-size-13 mb-1">
+                              {{storage['video'][0]}}
+                            </p>
+                            <p class="text-muted font-size-13 mb-1">
+                              {{storage['total'][0]}} used
+                            </p>
+                          </div>
+                          <div
+                            class="progress video-bar animated-progess custom-progress"
+                          >
+                            <div
+                              class="progress-bar bg-gradient video-progress-bar fill-up-animation"
+                              role="progressbar"
+                              style="width: 0%"
+                              aria-valuenow="{{storage['video'][1]}}"
+                              aria-valuemin="0"
+                              aria-valuemax="{{storage['total'][1]}}"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end col -->
+
+                <div class="col-xl-4 col-sm-6">
+                  <div class="card shadow-none border">
+                    <div class="card-body p-3">
+                      <div class="">
+                        <div class="d-flex align-items-center">
+                          <div class="avatar align-self-center me-3">
+                            <div
+                              class="avatar-title rounded document-icon font-size-24"
+                            >
+                              <i class="mdi mdi-file-document"></i>
+                            </div>
+                          </div>
+
+                          <div class="flex-1">
+                            <h5 class="font-size-15 mb-1">Document files</h5>
+                          </div>
+                        </div>
+                        <div class="mt-3 pt-1">
+                          <div class="d-flex justify-content-between">
+                            <p class="text-muted font-size-13 mb-1">
+                              {{storage['document'][0]}}
+                            </p>
+                            <p class="text-muted font-size-13 mb-1">
+                              {{storage['total'][0]}} used
+                            </p>
+                          </div>
+                          <div
+                            class="progress document-bar animated-progess custom-progress"
+                          >
+                            <div
+                              class="progress-bar bg-gradient document-progress-bar fill-up-animation"
+                              role="progressbar"
+                              style="width: 0%"
+                              aria-valuenow="{{storage['document'][1]}}"
+                              aria-valuemin="0"
+                              aria-valuemax="{{storage['total'][1]}}"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end col -->
+
+                <div class="col-xl-4 col-sm-6">
+                  <div class="card shadow-none border">
+                    <div class="card-body p-3">
+                      <div class="">
+                        <div class="d-flex align-items-center">
+                          <div class="avatar align-self-center me-3">
+                            <div
+                              class="avatar-title rounded other-icon text-primary font-size-24"
+                            >
+                              <i class="mdi mdi-apple-icloud"></i>
+                            </div>
+                          </div>
+
+                          <div class="flex-1">
+                            <h5 class="font-size-15 mb-1">Other files</h5>
+                          </div>
+                        </div>
+                        <div class="mt-3 pt-1">
+                          <div class="d-flex justify-content-between">
+                            <p class="text-muted font-size-13 mb-1">
+                              {{storage['other'][0]}}
+                            </p>
+                            <p class="text-muted font-size-13 mb-1">
+                              {{storage['total'][0]}} used
+                            </p>
+                          </div>
+                          <div
+                            class="progress other-bar animated-progess custom-progress"
+                          >
+                            <div
+                              class="progress-bar bg-gradient bg-primary fill-up-animation"
+                              role="progressbar"
+                              style="width: 0%"
+                              aria-valuenow="{{storage['other'][1]}}"
+                              aria-valuemin="0"
+                              aria-valuemax="{{storage['total'][1]}}"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end col -->
+              </div>
+
+              <!-- end row -->
+              <div class="d-flex flex-wrap">
+                <h5 class="font-size-16 me-3">Your Files</h5>
+              </div>
+              <hr class="mt-2" />
+              <div class="table-responsive">
+                <table class="table align-middle table-nowrap table-hover mb-0">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Date modified</th>
+                      <th scope="col" colspan="3">Size</th>
+                      <!--<th scope="col" colspan="2">Members</th> !-->
+                    </tr>
+                  </thead>
+                  <tbody id="fileTableBody">
+                    {% for file in files: %}
+                    <tr>
+                      <td>
+                        <a
+                          href="javascript: void(0);"
+                          class="text-dark fw-medium"
+                          ><i
+                            class="mdi {{file.category}} font-size-16 align-middle text-primary me-2 "
+                          ></i>
+                          {{file.name}}</a
+                        >
+                      </td>
+
+                      <td>{{file.date}}</td>
+                      <td>{{file.size}}</td>
+                      <td>
+                        <a
+                          class="download-link font-size-16 text-muted"
+                          role="button"
+                          file_id="{{file.file_id}}"
+                          file_name="{{file.name}}"
+                        >
+                          <span class="mdi mdi-download"></span>
+                        </a>
+                        <a
+                          class="delete-link font-size-16 text-muted"
+                          role="button"
+                          file_id="{{file.file_id}}"
+                        >
+                          <span class="mdi mdi-trash-can-outline"></span>
+                        </a>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                <div>
+                  <a href="{{ url_for('logout') }}"
+                    ><span class="mdi mdi-logout"></span>Logout</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/panel.js') }}"></script>
+  </body>
+</html>
